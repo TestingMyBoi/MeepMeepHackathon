@@ -16,7 +16,9 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - We realize these are obviously exploitable, and will review, optimize and slash for final implementation.
 - We will revisit and add whitelist capabilities for inter-contract interaction.
 - Tests have yet to be written for this, and will be written after visibility issues are addressed.
-- UI as well, we've created endless plans and mockups for the UI, but current implementation is minimal.
+- UI current implementation is minimal, however we've created endless plans and mockups for the UI.
+- All mockups were done, professionally, in illustrator and are labeled with viable IDs.
+- These can be exported as SVGs and imported directly into React to create easy game assets.
 
 ## Current Features
 ### Contract Summary
