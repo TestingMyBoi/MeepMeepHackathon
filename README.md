@@ -21,6 +21,29 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - GameBoards can be added using accessor methods, and consist of a single integer array + a 2d integer array.
 - This allows for us to continually add new boards for custom games at any time and change booster rates, all on chain.
 
+### Storing Boards On-Chain
+- Boards can feature tiles of any shape and any size.
+- The base board shape is in that of an egg as shown below
+     ```
+             uint8[40] memory baseLayout = [
+                  1,0,0,0,1, 
+                  0,0,0,0,0,
+                2,0,0,0,0,0,2,
+                0,0,0,0,0,0,0,
+                0,0,0,0,0,0,0,
+                  1,0,0,0,1,
+                    0,0,0,
+                      0
+            ];
+     ```
+ - The starting cell for our default board is 20 (the cell in the center) the cells are labeled sequentially (1,2,3,4,5,6...)
+ - It also has a maximum/minimum adjacency of 6 (they are hexagaons). 
+ - For instance, if we wanted to define the possible moves from the central hexagon of `21` we'd assign `[13,14,15,20,22,28]` for our moves at index `21`. 
+ - This means if you are on tile 21, you can move to tiles `[13,14,15,20,22,28]`.
+ - If you wanted to create a simple square map `[0,0,0,0]` and `[[2,3],[1,4],[1,4],[2,3]]` would do it.
+ - Finally the numbers in the board layout represent booster IDs. 
+ - The owner can add more boosters with difdferent rates and then update the boards to use the,.
+
 ### UI Summary
 - The UI will consist of 5 major panels: GameBoard, GameChat, GameLeaderboard, GameHeatmap, GameLogs
 - GameBoard will obviously hold all the movement of players, swipes and display information about where people are.
