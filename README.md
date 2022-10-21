@@ -10,6 +10,14 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - At the end, one player has the most eggs.
 - They win (and so does the house).
 
+### Developer Notes (Things to Keep in Mind)
+- For the purpose of the hackathon, we focused on having enough to viably explain the idea, not complete it.
+- Visibility of internal items was not prioritized and most were left public for testing.
+- We realize these are obviously exploitable, and will review, optimize and slash for final implementation.
+- We will revisit and add whitelist capabilities for inter-contract interaction.
+- Tests have yet to be written for this, and will be written after visibility issues are addressed.
+- UI as well, we've created endless plans and mockups for the UI, but current implementation is minimal.
+
 ## Current Features
 ### Contract Summary
 - Contract consists of six parts: MeepMeep, GameState, Player, Tile, GameBoard, Booster
@@ -76,6 +84,7 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - We've essentially made nearly all art assets at the same time as our presentation.
 - Layers are functionally named, and can be adapted to import directly as react components.
 - Will likely use MOBX store, ether-js, and a combination of other plugins.
+
 
 _There is a lot more to this idea than listed above, but I tried to keep each topic to 5-7 bullet points._
 
