@@ -59,13 +59,7 @@ contract Player {
         current = t;
         ended = false;
     }
-
-    // @dev used to make sure only the player is doing this action.
-    modifier onlyPlayer {
-        require(msg.sender == wallet);
-        _;
-    }
-
+    
     // @dev used to make sure the game has not ended.
     modifier notEnded {
         require(!ended);
@@ -81,13 +75,13 @@ contract Player {
 
     // @notice sets the next move of the player.
     // @dev the next move of the player in integer format to save space.
-    function setMove(uint256 t) external onlyPlayer notEnded {
+    function setMove(uint256 t) public notEnded {
         move = t;
     }
 
     // @notice sets the next swipe of the player.
     // @dev the next swipe of the player in integer format to save space.
-    function setSwipe(uint256 t) external onlyPlayer notEnded {
+    function setSwipe(uint256 t) public notEnded {
         swipe = t;
     }
 
@@ -177,5 +171,6 @@ contract Player {
         delete swipe;
         delete productivityRating;
         delete swipeRating;
+		delete boosters;
     }
 }

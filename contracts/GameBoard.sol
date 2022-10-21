@@ -69,7 +69,7 @@ contract GameBoard {
     // @dev the valid moves must be set before hand.
     // @param tile the tile to get the valid moves for.
     // @return the valid moves for this tile to be used on the UI.
-    function getValidMoves(uint256 tile) public view returns (uint[] memory) {
+    function getValidMoves(uint256 tile) public view returns (uint256[] memory) {
         return adjacentTiles[tile];
     }
 

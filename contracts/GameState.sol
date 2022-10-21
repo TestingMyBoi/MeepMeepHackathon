@@ -195,9 +195,9 @@ contract GameState {
     // @param to the tile we want to move to.
     // @returns true if the move is valid, false otherwise.
     function isMoveValid(uint256 from, uint256 to) public view returns (bool) {
-        uint[] memory arr = board.getValidMoves(from);
+        uint256[] memory arr = board.getValidMoves(from);
         for (uint i = 0; i < arr.length; i++) {
-            if (to == arr[i]) {
+            if (arr[i] > 0 && to == arr[i]) {
                 return true;
             }
         }

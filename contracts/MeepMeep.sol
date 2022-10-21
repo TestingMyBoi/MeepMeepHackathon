@@ -174,7 +174,8 @@ contract MeepMeep is Ownable {
         // locked down so that we have a front end layer between this and the end user.
         GameState state = games[id];
         Player player = state.getPlayer(msg.sender);
-        require(state.isMoveValid(player.getCurrent(), tile), "Invalid move.");
+        uint256 current = player.getCurrent();
+        require(state.isMoveValid(current, tile), "Invalid move.");
         player.setMove(tile);
     }
 
@@ -183,7 +184,17 @@ contract MeepMeep is Ownable {
     // @param id the game id.
     // @param tile the tile id to swipe from.
     function setSwipe(uint256 id, uint256 tile) external {
-        games[id].getPlayer(msg.sender).setSwipe(tile);
+        GameState state = games[id];
+        Player player = state.getPlayer(msg.sender);
+        player.setSwipe(tile);
+    }
+
+    // @notice Allows the user to update a game state.
+    // @dev fetches the game state, and updates it
+    // @param id the game id.
+    function update(uint256 id) external {
+        GameState state = games[id];
+        state.update();
     }
 
     // @notice Allows the user to get their game board object ref.
@@ -227,8 +238,6 @@ contract MeepMeep is Ownable {
         return games[id];
     }
 
-
-    // TODO update with new board designs post hackathon & fix weird gas errors.
     // @notice Initializes a basic game board for the base game, basic boosters and other variables.
     // @dev only to be used in the constructor, never again. You could run it again, but no point.
     function init() internal {
