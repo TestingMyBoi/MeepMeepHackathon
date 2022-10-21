@@ -77,4 +77,6 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - Layers are functionally named, and can be adapted to import directly as react components.
 - Will likely use MOBX store, ether-js, and a combination of other plugins.
 
+_There is a lot more to this idea than listed above, but I tried to keep each topic to 5-7 bullet points._
+
 _If you have any questions reach out to DevNeck in the Longnecks Discord._
