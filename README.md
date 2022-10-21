@@ -31,6 +31,7 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - GameBoards can be added using accessor methods, and consist of a single integer array + a 2d integer array.
 - This allows for us to continually add new boards for custom games at any time and change booster rates, all on chain.
 - Please note, once again, that method visibility is not finalized and we will implement whitelisting between contracts.
+- Interactable.sol is unused, but is an extension of Ownable which will be used for game control in next steps.
 
 ### Storing Boards On-Chain
 - Boards can feature tiles of any shape and any size.
