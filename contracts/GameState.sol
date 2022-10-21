@@ -75,7 +75,7 @@ contract GameState {
         tiles = new Tile[](0);
         numPlayers = 0;
         for (uint256 i = 0; i < tiles.length; i++) {
-            tiles.push(new Tile(i + 1));
+            tiles.push(new Tile(i));
         }
     }
 
@@ -109,7 +109,7 @@ contract GameState {
     // @dev Calls updateo n tiles, resets player moves, swaps over epoch, all game state updates aggregate up to this method.
     // TODO potentially implement a rebat method for players who spend gas on the update method, refunding their entry cost.
     function update() external isStarted {
-        require (epochStart + epochLength > block.timestamp, "Can't update, epoch not over.");
+        require (epochStart + epochLength < block.timestamp, "Can't update, epoch not over.");
         require (currentEpoch <= epochCount, "All epochs completed, game should be finalized.");
 
 
@@ -125,7 +125,7 @@ contract GameState {
             for (uint256 y = 0; y < p.length; y++) {
                 uint256 move = p[y].getMove();
                 if (move > 0) {
-                    tiles[move-1].setMove(p[y]);
+                    tiles[move - 1].setMove(p[y]);
                 } else {
                     // TODO decide if we want to do something special on AFK scenarios.
                 }

@@ -252,7 +252,7 @@ contract MeepMeep is Ownable {
         boosters.push(new Booster(boosters.length, 0, 20));
 
         // Creates new game board b with ID 0.
-        GameBoard b = new GameBoard(boards.length, 20);
+        GameBoard b = new GameBoard(boards.length, 19);
 
         // Shape of this board: https://i.imgur.com/uprzGkt.png
 
@@ -327,7 +327,9 @@ contract MeepMeep is Ownable {
         for (uint256 i = 0; i < baseLayout.length; i++) {
             converted[i] = ((uint256)(baseLayout[i]));
             for (uint256 j = 0; j < validMoves[i].length; j++) {
-                b.addValidMove(i, validMoves[i][j]);
+                if (validMoves[i][j] > 0) {
+                    b.addValidMove(i, validMoves[i][j] - 1);
+                }
             }
         }
         b.setTileLayout(converted);
