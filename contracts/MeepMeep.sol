@@ -162,7 +162,9 @@ contract MeepMeep is Ownable {
     // @dev Allows the owner to start a game that already has been created by id.
     // @param id the game id.
     function startGame(uint256 gameId) external onlyOwner {
-        games[gameId].start();
+        GameState state = games[gameId];
+        require (state.numPlayers() > 1, "Can't start with less than 2 players!");
+        state.start();
     }
 
     // @notice Allows the user to set move for the current epoch.
