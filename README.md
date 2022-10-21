@@ -1,2 +1,57 @@
-# MeepMeepContract
- Contract for MeepMeep
+# Meep Meep
+## _The First On-chain Game on CANTO_
+
+Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal) as many eggs as possible.
+
+- Owner creates a lobby.
+- Players join up, paying a fee.
+- Owner starts up the game.
+- Players move and swipe repeatedly.
+- At the end, one player has the most eggs.
+- They win (and so does the house).
+
+## Current Features
+### Contract Summary
+- Contract consists of six parts: MeepMeep, GameState, Player, Tile, GameBoard, Booster
+- MeepMeep stitches all parts together and allows for a static reference for the UI to use.
+- GameState is the aggregation of all player states and tile states, allows for the game to update all tiles at once.
+- Tile holds two different sets of players, one set being the swipers for the tile and the other being the producers.
+- Player objects are tied to both GameStates and wallets and hold the status of the wallet for each game state.
+- GameBoard/Booster are tied together to store both the layout of the board and allow for customizable booster rates.
+- GameBoards can be added using accessor methods, and consist of a single integer array + a 2d integer array.
+- This allows for us to continually add new boards for custom games at any time and change booster rates, all on chain.
+
+### UI Summary
+- The UI will consist of 5 major panels: GameBoard, GameChat, GameLeaderboard, GameHeatmap, GameLogs
+- GameBoard will obviously hold all the movement of players, swipes and display information about where people are.
+- GameHeatmaps show data used to decide moves including swiped cells, where players are currently and your swipes.
+- GameChat is just chat, it will likely be tied to the current game state only, so people can only talk to each other.
+- GameLeaderboards are an aggregation of all players sorted by who has the most eggs (who is in first).
+- GameLogs are a list of all previous moves, swipes and other things that occurred in the previous round.
+- There will be additional utility pages including a landing page, game list and a few more pages.
+
+## Planned Features
+### MEEP MEEP Cosmetic Items (subject to change):
+- Cosmetic items will be the main purpose of the NFTs, and the way we integrate them into the game.
+- Being the holder of 1 NFT (or multiple) unlocks all the meta-data traits your NFT owns for use in the game.
+- You can mix-and-match any of the traits you've unlocked in the cosmetic editor in your profile.
+- For those who don't have enough canto to afford a longneck, you can also unlock cosmetic items.
+- Cosmetic items are unlocked via the in-game currency eggs, which are earned through playing.
+- The main way to get a lot of cosmetic items without playing for hours is to own many NFTs!
+
+### Testing Plan
+- MEEP MEEP is currently just a prototype, and was developed in under 2 weeks.
+- Testing plan is what will come next immediately following hackathon.
+- Rudimentary testing has been completed, with a full GameState having been progressed manually.
+- Will create hardhat tests/foundry test suites to mimic many players (even loads up to 100).
+- Plan to also have code audited when finished, and will scale using subgraph to eliminate infinitely growing storage.
+
+### UI Plan
+- UI prototype is already being developed in react, barely in the infant stages.
+- Plan to use sub-graph and (possibly) host a public sub-graph is required for the UI to function.
+- All mockups shown in the video are exported as SVGs and will serve as the UI.
+- We've essentially made nearly all art assets at the same time as our presentation.
+- Layers are functionally named, and can be adapted to import directly as react components.
+- Will likely use MOBX store, ether-js, and a combination of other plugins.
+
+_If you have any questions reach out to DevNeck in the Longnecks Discord._
