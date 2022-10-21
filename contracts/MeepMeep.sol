@@ -135,14 +135,9 @@ contract MeepMeep is Ownable {
 
         // Fetch game by ID.
         GameState game = games[id];
-
-        // Fetch who's in this game.
-        address[] memory joinedPlayers = game.getWallets();
         
         // Double check it's not the person joining.
-        for (uint256 i = 0; i < joinedPlayers.length; i++) {
-            require (joinedPlayers[i] != msg.sender, "You're already in this lobby.");
-        }
+        require(address(game.getPlayer(msg.sender)) == address(0), "");
 
         // Add player to that specific game.
         Player p = new Player(
