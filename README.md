@@ -23,7 +23,7 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 
 ### Storing Boards On-Chain
 - Boards can feature tiles of any shape and any size.
-- The base board shape is in that of an egg as shown below
+- The base board shape is in that of an egg as [shown below, and in the image here.](https://i.imgur.com/uprzGkt.png)
      ```
              uint8[40] memory baseLayout = [
                   1,0,0,0,1, 
