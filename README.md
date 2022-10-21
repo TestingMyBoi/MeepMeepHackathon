@@ -42,7 +42,7 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
  - This means if you are on tile 21, you can move to tiles `[13,14,15,20,22,28]`.
  - If you wanted to create a simple square map `[0,0,0,0]` and `[[2,3],[1,4],[1,4],[2,3]]` would do it.
  - Finally the numbers in the board layout represent booster IDs. 
- - The owner can add more boosters with difdferent rates and then update the boards to use the,.
+ - The owner can add more boosters with different rates and then update the boards to use them.
 
 ### UI Summary
 - The UI will consist of 5 major panels: GameBoard, GameChat, GameLeaderboard, GameHeatmap, GameLogs
