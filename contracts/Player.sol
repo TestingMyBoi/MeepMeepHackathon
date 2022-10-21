@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.7;
 
-import "./Tile.sol";
+import "./Booster.sol";
 
 /// @title Player state for a specific game state.
 /// @author Devneck
@@ -59,7 +59,7 @@ contract Player {
         current = t;
         ended = false;
     }
-    
+
     // @dev used to make sure the game has not ended.
     modifier notEnded {
         require(!ended);
