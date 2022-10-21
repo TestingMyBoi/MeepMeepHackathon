@@ -51,7 +51,7 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
  - It also has a maximum/minimum adjacency of 6 (they are hexagaons). 
  - For instance, if we wanted to define the possible moves from the central hexagon of `21` we'd assign `[13,14,15,20,22,28]` for our moves at index `21`. 
  - This means if you are on tile 21, you can move to tiles `[13,14,15,20,22,28]`.
- - If you wanted to create a simple square map `[0,0,0,0]` and `[[2,3],[1,4],[1,4],[2,3]]` would do it.
+ - If you wanted to create a simple square map (no boosters) `[0,0,0,0]` and `[[2,3],[1,4],[1,4],[2,3]]` would do it.
  - Finally the numbers in the board layout represent booster IDs. 
  - The owner can add more boosters with different rates and then update the boards to use them.
 
@@ -86,7 +86,7 @@ Meep Meep is an on-chain game featuring emus where the goal is to lay (and steal
 - All mockups shown in the video are exported as SVGs and will serve as the UI.
 - We've essentially made nearly all art assets at the same time as our presentation.
 - Layers are functionally named, and can be adapted to import directly as react components.
-- Will likely use MOBX store, ether-js, and a combination of other plugins.
+- Will likely use MUI, MOBX store, ether-js, and a combination of other react plugins.
 
 
 _There is a lot more to this idea than listed above, but I tried to keep each topic to 5-7 bullet points._
